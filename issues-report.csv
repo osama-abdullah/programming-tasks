@@ -1,0 +1,41 @@
+,assignee,created,description,duedate,issuetype,priority,project,reporter,resolution,summary,status,votes
+0,Claus Ibsen,2016-12-14T14:42:08.541+0000,"Assume I have rest path
+
+{code}
+rest(""/test"").get().type(ClassA.class).to(""direct:someRoute"");
+
+rest(""/testSub"").get().type(ClassB.class).to(""direct:someOtherRoute"");
+{code}
+
+And in the type ClassA contains a reference to ClassB.
+
+Within the Swagger Doc the path for ClassA renders as expected:
+{code}
+/test:
+    get:
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/ClassA'
+{code}
+
+However ClassB gets a string parameter scheme
+{code} 
+/testSub:
+    get:
+      responses:
+        200:
+          schema:
+             type : 'string'
+             format : 'com.ClassB'
+{code}
+
+However I'd expect it to be:
+{code}
+/testSub:
+    get:
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/ClassB'
+{code}",,Bug,Minor,CAMEL,Bob Paulin,Fixed,Swagger prints child object types as string parameters rather than refs,Resolved,0
