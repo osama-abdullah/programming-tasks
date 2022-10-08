@@ -55,3 +55,11 @@ def search(board, word):
                 return True
     # here, no matched from any coordination point in the 'board', return False
     return False
+
+res=search([
+    ['A','B','C','E'],
+    ['S','F' ,'C','S'],
+    ['A','D','E','E']
+    ],
+    'ABCCED')
+print(res)
