@@ -51,6 +51,7 @@ def search(board, word):
     
     for i in range(row_no):
         for j in range(col_no):
-            print(i,j)
+            if dfs(i, j, 0):
+                return True
     # here, no matched from any coordination point in the 'board', return False
     return False
