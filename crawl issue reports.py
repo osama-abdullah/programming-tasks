@@ -41,7 +41,7 @@ def crawlIssueData(server_link,issues):
             
     return issues_df,comments_df
 
-issueData,commentsData=crawlIssueData('https://issues.apache.org/jira/',['CAMEL-10597'])
+issueData,commentsData = crawlIssueData('https://issues.apache.org/jira/',['CAMEL-10597'])
 
 issueData.to_csv('issues-report.csv')
 commentsData.to_csv('issues-comments.csv')
